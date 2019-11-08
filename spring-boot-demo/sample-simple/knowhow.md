@@ -6,7 +6,10 @@
 
 三个问题：
 1.@SpringBootApplication做了什么事情？
+
     既然是spring项目，那么我们很容易猜到其首要完成的就是spring容器的初始化，至于怎么初始化，后边再介绍。
+    
+    主要逻辑在spring-boot模块中实现。
     
 2.pom中的spring-boot-starter-web又做了什么？
 可以简单过一下源码，发现spring-boot-starter-web是一个单纯的pom包，没有源码，目的就是加载相应依赖。
@@ -18,9 +21,27 @@
 spring-boot-actuator-autoconfigure(看模块的名字大致可以猜出),里边包含了相应功能模块的初始化逻辑。
 
 
+这部分重点关注以下几个对象
+
+@SpringBootApplication 
+    首先是个配置类，配置容器中的bean的，同时会包含下边几个注解。
+    
+    @SpringBootConfiguration == @Configuration(proxyBeanMethods = false)
+    @EnableAutoConfiguration == AutoConfigurationPackages.Registrar.class + AutoConfigurationImportSelector
+        AutoConfigurationPackages 
+    
+    @ComponentScan
+    @ConfigurationPropertiesScan
 
 
+SpringApplication
 
+spring configuration related logic
 
+- ConfigurationClassParser
+- ImportSelector & DeferredImportSelector
+- @Import
+- @ImportResource
 
+AutoConfigurationImportSelector
 
