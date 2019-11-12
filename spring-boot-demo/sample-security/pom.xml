@@ -9,11 +9,16 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.springframework.boot.samples</groupId>
-	<artifactId>sample-simple</artifactId>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>sample-security</artifactId>
 	<version>2.2.0.RELEASE</version>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -21,7 +26,7 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 		<dependency>
@@ -32,20 +37,33 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
+			<version>1.4.199</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-log4j2</artifactId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.jupiter</groupId>
+					<artifactId>junit-jupiter-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
+		<!--<dependency>-->
+			<!--<groupId>org.mockito</groupId>-->
+			<!--<artifactId>mockito-core</artifactId>-->
+			<!--<version>3.1.0</version>-->
+		<!--</dependency>-->
 	</dependencies>
 
 </project>

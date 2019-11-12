@@ -58,7 +58,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public @interface RestControllerEndpoint {
 
 	/**
-	 * The id of the endpoint.
+			* The id of the endpoint.
 	 * @return the id
 	 */
 	@AliasFor(annotation = Endpoint.class)
