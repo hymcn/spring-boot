@@ -2,6 +2,7 @@ package mooon;
 
 import mooon.service.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,8 @@ import java.security.Principal;
  * @date 2019/11/11.
  */
 @Controller
+@EnableResourceServer
 public class AdminController {
-
 
 	@Autowired
 	UserRepository userRepository;

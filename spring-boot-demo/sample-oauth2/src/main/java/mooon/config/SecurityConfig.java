@@ -15,8 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	// if use the default config, a micro security service also works.
-	// with a login info :  user: user, password: system generated, you can see in startup log.
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -45,16 +43,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.headers().frameOptions().sameOrigin().httpStrictTransportSecurity().disable();
 //		http.formLogin().and().authorizeRequests().mvcMatchers("/admin/*").hasRole("ADMIN")
 //				.anyRequest().hasRole("USER");
-		;
-		http.authorizeRequests().anyRequest().permitAll();
+//		http.authorizeRequests().anyRequest().permitAll();
 		http.csrf().disable();
+		http.formLogin();
+//		http.mvcMatcher("/abc/**");
+//		http.authorizeRequests().mvcMatchers("/who/**").hasRole("USER");
+
+
 	}
 
 
-	@Bean
-	@Override
-	public UserDetailsService userDetailsServiceBean() throws Exception {
-		return super.userDetailsServiceBean();
-	}
+//	@Bean
+//	@Override
+//	public UserDetailsService userDetailsServiceBean() throws Exception {
+//		return super.userDetailsServiceBean();
+//	}
 
 }

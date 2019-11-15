@@ -7,16 +7,14 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 
 /**
  * @author Administrator
- * @date 2019/11/7.
+ * @date 2019/11/15.
  */
 @SpringBootApplication
-@Slf4j
 @EnableResourceServer
+@Slf4j
 public class Application {
 
-
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
-
+    public static void main(String[] args){
+        SpringApplication.run(Application.class, args);
+    }
 }

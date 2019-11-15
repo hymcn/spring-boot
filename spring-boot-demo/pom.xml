@@ -18,6 +18,10 @@
 	<modules>
 		<module>sample-simple</module>
 		<module>sample-security</module>
+        <module>sample-oauth2</module>
+        <module>sample-oauth-server</module>
+		<module>sample-oauth-client</module>
+		<module>sample-oauth-resource-server</module>
 	</modules>
 
 	<dependencies>
