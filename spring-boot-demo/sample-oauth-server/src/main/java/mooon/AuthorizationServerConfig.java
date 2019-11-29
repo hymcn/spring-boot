@@ -37,7 +37,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .authorizedGrantTypes("client_credentials", "authorization_code", "implicit", "password")
                 .scopes("app")
                 .authorities("ROLE_APP")
-                .redirectUris("http://localhost:8081/api/a")
+                .redirectUris("http://localhost:8081/api/a","http://localhost:8083/login")
                 .secret(passwordEncoder().encode("123"))
                 .accessTokenValiditySeconds(24 * 60 * 30)
                 .refreshTokenValiditySeconds(48* 60 * 60);

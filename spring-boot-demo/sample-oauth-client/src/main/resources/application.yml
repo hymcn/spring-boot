@@ -1,0 +1,22 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          client-id:
+            client-id: appid
+            client-secret: 123
+            provider: provider-id
+            scope: userinfo
+
+        provider:
+          provider-id:
+            authorizationUri: http://localhost:8080/oauth/token
+            tokenUri: http://localhost:8080/oauth/token
+            userInfoUri: http://localhost:8080/oauth/token
+            userInfoAuthenticationMethod: http://localhost:8080/oauth/token
+            userNameAttribute: http://localhost:8080/oauth/token
+            jwkSetUri: http://localhost:8080/oauth/token
+            issuerUri: http://localhost:8080/oauth/token
+
+

@@ -27,7 +27,6 @@ public class UserController {
     @RequestMapping("/callback")
     public String callback(String state, String code) {
         log.info("code: {}, state: {}", code, state);
-
         return "get token success";
     }
 }

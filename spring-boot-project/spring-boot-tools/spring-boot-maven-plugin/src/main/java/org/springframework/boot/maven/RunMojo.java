@@ -47,7 +47,7 @@ import org.springframework.boot.loader.tools.RunProcess;
 @Execute(phase = LifecyclePhase.TEST_COMPILE)
 public class RunMojo extends AbstractRunMojo {
 
-	private static final int EXIT_CODE_SIGINT = 130;
+		private static final int EXIT_CODE_SIGINT = 130;
 
 	private static final String RESTARTER_CLASS_LOCATION = "org/springframework/boot/devtools/restart/Restarter.class";
 

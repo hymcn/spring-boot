@@ -216,9 +216,9 @@ public abstract class AbstractFilterRegistrationBean<T extends Filter> extends D
 	@Override
 	protected void configure(FilterRegistration.Dynamic registration) {
 		super.configure(registration);
-		EnumSet<DispatcherType> dispatcherTypes = this.dispatcherTypes;
-		if (dispatcherTypes == null) {
-			dispatcherTypes = EnumSet.of(DispatcherType.REQUEST);
+			EnumSet<DispatcherType> dispatcherTypes = this.dispatcherTypes;
+			if (dispatcherTypes == null) {
+				dispatcherTypes = EnumSet.of(DispatcherType.REQUEST);
 		}
 		Set<String> servletNames = new LinkedHashSet<>();
 		for (ServletRegistrationBean<?> servletRegistrationBean : this.servletRegistrationBeans) {

@@ -22,6 +22,7 @@
         <module>sample-oauth-server</module>
 		<module>sample-oauth-client</module>
 		<module>sample-oauth-resource-server</module>
+		<module>sample-webflux</module>
 	</modules>
 
 	<dependencies>

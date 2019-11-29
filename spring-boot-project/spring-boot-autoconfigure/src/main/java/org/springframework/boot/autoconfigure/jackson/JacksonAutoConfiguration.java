@@ -155,7 +155,6 @@ public class JacksonAutoConfiguration {
 	@Configuration(proxyBeanMethods = false)
 	@ConditionalOnClass(ParameterNamesModule.class)
 	static class ParameterNamesModuleConfiguration {
-
 		@Bean
 		@ConditionalOnMissingBean
 		ParameterNamesModule parameterNamesModule() {
