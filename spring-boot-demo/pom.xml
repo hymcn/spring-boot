@@ -24,6 +24,8 @@
 		<module>sample-oauth-resource-server</module>
 		<module>sample-webflux</module>
 		<module>sample-spring-cloud-alibaba</module>
+		<module>sample-spring-cloud-alibaba-consumer</module>
+		<module>sample-spring-cloud</module>
 	</modules>
 
 	<dependencies>
