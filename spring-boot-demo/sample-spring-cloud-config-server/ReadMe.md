@@ -75,12 +75,3 @@ Treat logs as event streams
 XII. Admin processes
 Run admin/management tasks as one-off processes
 
-
-config
-eureka/discovery
-routine
-service government
-circuit 
-monitor 
-
-

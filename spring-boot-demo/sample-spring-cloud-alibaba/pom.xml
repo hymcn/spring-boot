@@ -2,16 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<parent>
-		<artifactId>spring-boot-demo</artifactId>
-		<groupId>org.springframework.boot</groupId>
-		<version>2.2.0.RELEASE</version>
-	</parent>
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>sample-spring-cloud-alibaba</artifactId>
 	<version>2.2.0.RELEASE</version>
+
+	<properties>
+		<spring-boot.version>2.2.0.RELEASE</spring-boot.version>
+	</properties>
 
 	<dependencyManagement>
 		<dependencies>
@@ -22,6 +22,16 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
+			<!-- Spring Boot -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.1.0.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
@@ -41,27 +51,30 @@
 			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
 		</dependency>
 
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
-			<!--<version>0.2.1.RELEASE</version>-->
-		<!--</dependency>-->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-alibaba-dubbo</artifactId>
+		</dependency>
 
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-			<!--<version>0.2.1.RELEASE</version>-->
-		<!--</dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>sample-spring-cloud</artifactId>
+			<version>2.2.0.RELEASE</version>
+		</dependency>
 
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
+	<repositories>
+		<repository>
+			<id>apache.snapshots.https</id>
+			<name>Apache Development Snapshot Repository</name>
+			<url>https://repository.apache.org/content/repositories/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>

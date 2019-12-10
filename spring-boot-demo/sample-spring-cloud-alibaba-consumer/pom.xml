@@ -2,11 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<parent>
-		<artifactId>spring-boot-demo</artifactId>
-		<groupId>org.springframework.boot</groupId>
-		<version>2.2.0.RELEASE</version>
-	</parent>
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.springframework.boot</groupId>
@@ -23,6 +19,14 @@
 				<scope>import</scope>
 			</dependency>
 
+			<!-- Spring Boot -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.1.0.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
@@ -35,7 +39,7 @@
 
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>
-			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+			<artifactId>spring-cloud-alibaba-nacos-discovery</artifactId>
 		</dependency>
 
 		<!--<dependency>-->
@@ -43,16 +47,27 @@
 			<!--<artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>-->
 		<!--</dependency>-->
 
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>-->
+			<!--<version>2.1.0.RELEASE</version>-->
+		<!--</dependency>-->
+
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.cloud</groupId>-->
+			<!--<artifactId>spring-cloud-starter-openfeign</artifactId>-->
+			<!--<version>2.1.0.RELEASE</version>-->
+		<!--</dependency>-->
+
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>sample-spring-cloud</artifactId>
 			<version>2.2.0.RELEASE</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-			<version>2.2.0.RELEASE</version>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-alibaba-dubbo</artifactId>
 		</dependency>
 
 	</dependencies>
@@ -60,8 +75,12 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

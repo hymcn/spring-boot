@@ -1,10 +1,10 @@
 package mooon;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import mooon.api.DemoService;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * @author Administrator
@@ -13,19 +13,11 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class TestController {
 
-	@Autowired
-	private RestTemplate restTemplate;
+	@Reference(version = "1.0.0")
+	private DemoService demoService;
 
-	@Autowired
-	private EchoService echoService;
-
-	@GetMapping(value = "/echo-rest/{str}")
-	public String rest(@PathVariable String str) {
-		return restTemplate.getForObject("http://service-provider/echo/" + str, String.class);
-	}
-
-	@GetMapping(value = "/echo-feign/{str}")
-	public String feign(@PathVariable String str) {
-		return echoService.echo(str);
+	@GetMapping(value = "/echo-dubbo/{str}")
+	public String dubbo(@PathVariable String str) {
+		return demoService.sayName(str);
 	}
 }
