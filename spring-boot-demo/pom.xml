@@ -31,7 +31,7 @@
 		<module>sample-spring-cloud-eureka-server</module>
 		<module>sample-spring-cloud-eureka-client</module>
 		<module>sample-spring-cloud-zuul</module>
-
+		<module>sample-spring-cloud-ribbon</module>
 
 	</modules>
 

@@ -1,0 +1,15 @@
+
+demo:
+  ribbon:
+    listOfServers: http://eureka1:8080/,http://eureka2:8080,http://eureka3:8080
+
+
+ribbon:
+  eager-load:
+    clients: demo
+    enabled: true
+
+zuul:
+  threadPool:
+    useSeparateThreadPools: true
+    threadPoolKeyPrefix: zuulgw

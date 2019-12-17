@@ -1,0 +1,50 @@
+server:
+  port: 80
+
+#zuul.routes.demo.path=/proxy/**
+#zuul.routes.demo.url=http://localhost/downstream
+#
+#zuul.routes.users.path=/users/**
+#zuul.routes.users.serviceId=user_service
+#zuul.routes.users.stripPrefix=true
+
+user_service:
+  ribbon:
+    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
+    listOfServers: http://eureka1:8080/,http://eureka2:8080,http://eureka3:8080
+    ConnectTimeout: 10
+    ReadTimeout: 30
+    MaxTotalHttpConnections: 50
+    MaxConnectionsPerHost: 5
+
+hystrix:
+  command:
+    user-service:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10
+
+ribbon:
+  ReadTimeout: 50
+  ConnectTimeout: 50
+
+zuul:
+  routes:
+    demo:
+      path: /proxy/**
+      url: http://localhost/downstream
+
+    users:
+      path: /users/**
+      serviceId: user_service
+
+  host:
+    connect-timeout-millis: 10
+    socket-timeout-millis: 20
+
+
+#      stripPrefix: true
+  threadPool:
+      useSeparateThreadPools: true
+      threadPoolKeyPrefix: zuulgw
