@@ -1,0 +1,12 @@
+spring:
+  application:
+      name: sample-microservice-app-provider
+  cloud:
+    nacos:
+      config:
+        name: microservice
+        server-addr: 127.0.0.1:8848
+        file-extension: properties
+#        group: demo
+      discovery:
+        server-addr: 127.0.0.1:8848

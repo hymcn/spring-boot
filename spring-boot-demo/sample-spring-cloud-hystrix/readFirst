@@ -1,0 +1,31 @@
+1. user  execution.isolation.strategy hystrix property控制隔离策略，默认是在线程池中运行，
+如果需要使用threadlocal变量，需要配置SEMAPHORE，保证同线程中执行。
+
+@HystrixCommand(fallbackMethod = "sayHelloDefault", commandProperties = {
+   			@HystrixProperty(name = "execution.isolation.strategy", value = "SEMAPHORE")
+   	})
+
+
+2. export hystrix stream use actuator
+
+management.endpoints.web.exposure.include=hystrix.stream
+
+related jars
+
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+3. enable dashboard use @EnableHystrixDashboard.
+
+then visit /hystrix
+
+4. turbine dashboard
+
+5. ribbon client side load balance

@@ -1,8 +1,8 @@
 package mooon;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import mooon.api.DemoService;
-import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -52,5 +52,10 @@ public class DemoController {
 	@RequestMapping("/")
 	public String getAppName(){
 		return appName;
+	}
+
+	@SentinelResource("resource")
+	public String hello() {
+		return "Hello api with sentinel";
 	}
 }

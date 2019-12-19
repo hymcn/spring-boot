@@ -32,6 +32,8 @@
 		<module>sample-spring-cloud-eureka-client</module>
 		<module>sample-spring-cloud-zuul</module>
 		<module>sample-spring-cloud-ribbon</module>
+		<module>sample-spring-cloud-hystrix</module>
+		<module>sample-microservice</module>
 
 	</modules>
 

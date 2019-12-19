@@ -1,0 +1,26 @@
+spring:
+  application:
+      name: sample-microservice-app-consumer
+  cloud:
+    nacos:
+      config:
+        name: microservice
+        server-addr: 127.0.0.1:8848
+        file-extension: properties
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+
+dubbo:
+  application:
+    name: sample-microservice-consumer
+  registry:
+    address: nacos://127.0.0.1:8848
+  cloud:
+    subscribed-services:
+  scan:
+    base-packages: mooon.service
+  config-center:
+    check: false
+  consumer:
+    check: false
