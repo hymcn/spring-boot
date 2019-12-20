@@ -27,5 +27,4 @@ public class DemoController {
 		return String.format("http://%s:%s", serviceInstance.getHost(), serviceInstance.getPort());
 	}
 
-
 }

@@ -1,7 +1,6 @@
 server:
   port: 8081
 
-
 management:
   endpoints:
     web:
@@ -35,3 +34,14 @@ hystrix:
 #  pattern:
 #    file: %date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
 #    console: %date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+
+sample-microservice-app-consumer:
+  ribbon:
+    NFLoadBalancerRuleClassName: mooon.config.NacosWeightRandomRule
+    listOfServers: http://eureka1:8081/,http://eureka2:8082,http://eureka3:8083
+
+ribbon:
+  eager-load:
+    clients: sample-microservice-app-consumer
+
+

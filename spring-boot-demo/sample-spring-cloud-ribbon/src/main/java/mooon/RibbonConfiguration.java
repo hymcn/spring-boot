@@ -25,11 +25,10 @@ public class RibbonConfiguration {
 	// ribbonLoadBalancer
 	// ribbonServerListUpdater
 
-
 	@Bean
 	public ZonePreferenceServerListFilter serverListFilter() {
 		ZonePreferenceServerListFilter filter = new ZonePreferenceServerListFilter();
-		filter.setZone("myTestZone");
+		filter.setZone("demoZone");
 		return filter;
 	}
 	@Bean

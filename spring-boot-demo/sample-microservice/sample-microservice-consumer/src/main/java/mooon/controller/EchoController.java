@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 /**
  * @author Administrator
  * @date 2019/12/18.
@@ -44,4 +46,11 @@ public class EchoController {
 	public String error(@PathVariable("e") String echo) {
 		throw new RuntimeException("Error ");
 	}
+
+	@RequestMapping("/lb")
+	public String lb(){
+		ServiceInstance serviceInstance = loadBalancer.choose("providers:mooon.api.IEchoService:1.1:");
+		return String.format("http://%s:%s", serviceInstance.getHost(), serviceInstance.getPort());
+	}
+
 }

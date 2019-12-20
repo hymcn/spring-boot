@@ -62,3 +62,30 @@ The Twelve-factor App作为一种常用的方法论，可以作为一种开发�
     增加privider的数量，which provider do i use?
     
     
+    client side load balancer
+    @FeignClient 包含 ribbon
+    
+    RibbonClientConfiguration
+    组件
+    IloadBalancer RestClient ServerListFilter
+    
+    config ribbon client
+    <client>.ribbon.*
+    
+    @Configuration
+    @RibbonClient(name = "foo", configuration = FooConfiguration.class)
+    public class TestConfiguration {
+    }
+    注意： 下面这段话
+        
+    The FooConfiguration has to be @Configuration but take care that it is not in a @ComponentScan for the main application context, otherwise it will be shared by all the @RibbonClients. If you use @ComponentScan (or @SpringBootApplication) you need to take steps to avoid it being included (for instance put it in a separate, non-overlapping package, or specify the packages to scan explicitly in the @ComponentScan
+    
+    IClientConfig ribbonClientConfig: DefaultClientConfigImpl
+    IRule ribbonRule: ZoneAvoidanceRule
+    IPing ribbonPing: NoOpPing
+    ServerList<Server> ribbonServerList: ConfigurationBasedServerList
+    ServerListFilter<Server> ribbonServerListFilter: ZonePreferenceServerListFilter
+    ILoadBalancer ribbonLoadBalancer: ZoneAwareLoadBalancer
+    
+    Feign ： Declarative Rest client
+    

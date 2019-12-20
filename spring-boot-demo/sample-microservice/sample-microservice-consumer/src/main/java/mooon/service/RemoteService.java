@@ -12,8 +12,6 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 @Component
 public class RemoteService {
 
-
-
 	@Reference(version = "${v}", check = false)
 	IEchoService iEchoService;
 

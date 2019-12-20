@@ -41,7 +41,7 @@
 		<queueSize>512</queueSize>
 	</appender>
 
-	<root level="WARN">
+	<root level="INFO">
 		<appender-ref ref="console" />
 		<!--<appender-ref ref="async-rollingFile" />-->
     </root>

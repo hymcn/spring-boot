@@ -1,5 +1,6 @@
 package mooon.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import mooon.service.EchoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2019/12/19.
  */
 @RestController
+@Slf4j
 public class ProviderController {
 
 	@Autowired
@@ -18,6 +20,7 @@ public class ProviderController {
 
 	@RequestMapping("/backend/echo/{e}")
 	public String backendEcho(@PathVariable(name = "e") String e){
+		log.warn("calling ");
 		return echoService.echo(e);
 	}
 }

@@ -24,3 +24,4 @@ dubbo:
     check: false
   consumer:
     check: false
+
