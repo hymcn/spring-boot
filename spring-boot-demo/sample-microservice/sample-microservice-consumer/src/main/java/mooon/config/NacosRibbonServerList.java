@@ -26,12 +26,10 @@ public class NacosRibbonServerList extends AbstractServerList<NacosServer> {
 		this.discoveryProperties = discoveryProperties;
 	}
 
-	@Override
 	public List<NacosServer> getInitialListOfServers() {
 		return getServers();
 	}
 
-	@Override
 	public List<NacosServer> getUpdatedListOfServers() {
 		return getServers();
 	}
@@ -65,7 +63,6 @@ public class NacosRibbonServerList extends AbstractServerList<NacosServer> {
 		return serviceId;
 	}
 
-	@Override
 	public void initWithNiwsConfig(IClientConfig iClientConfig) {
 		this.serviceId = iClientConfig.getClientName();
 	}

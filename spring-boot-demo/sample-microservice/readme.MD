@@ -89,3 +89,12 @@ The Twelve-factor App作为一种常用的方法论，可以作为一种开发�
     
     Feign ： Declarative Rest client
     
+    @RibbonClient如果区分当前应该使用哪个？
+    service name to host:port
+    
+
+8. 重头戏 sentinel
+
+
+## Q & A
+

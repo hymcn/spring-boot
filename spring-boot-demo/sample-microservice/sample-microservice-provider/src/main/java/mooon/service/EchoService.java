@@ -9,7 +9,7 @@ import org.apache.dubbo.config.annotation.Service;
  * @author Administrator
  * @date 2019/12/18.
  */
-@Service(version = "${v:0.0}")
+@Service(version = "${v}")
 @Slf4j
 public class EchoService implements IEchoService {
 

@@ -2,6 +2,7 @@ package mooon.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import mooon.api.IEchoService;
+import mooon.service.RemoteFeignService;
 import mooon.service.RemoteService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,6 @@ import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * @author Administrator
@@ -25,6 +24,9 @@ public class EchoController {
 
 	@Autowired
 	RemoteService remoteService;
+
+	@Autowired
+	RemoteFeignService remoteFeignService;
 
 	@Autowired
 	private LoadBalancerClient loadBalancer;
@@ -41,6 +43,12 @@ public class EchoController {
 		return remoteService.echo(echo);
 	}
 
+	@HystrixCommand(commandKey = "feignEcho")
+	@RequestMapping("/feignecho/{e}")
+	public String feignEcho(@PathVariable("e") String echo) {
+		return remoteFeignService.echo(echo);
+	}
+
 	@HystrixCommand(commandKey = "error")
 	@RequestMapping("/error/{e}")
 	public String error(@PathVariable("e") String echo) {
@@ -48,7 +56,7 @@ public class EchoController {
 	}
 
 	@RequestMapping("/lb")
-	public String lb(){
+	public String lb() {
 		ServiceInstance serviceInstance = loadBalancer.choose("providers:mooon.api.IEchoService:1.1:");
 		return String.format("http://%s:%s", serviceInstance.getHost(), serviceInstance.getPort());
 	}

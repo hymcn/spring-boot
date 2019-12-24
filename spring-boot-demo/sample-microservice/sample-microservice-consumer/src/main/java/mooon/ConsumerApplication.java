@@ -15,6 +15,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClients;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -33,7 +35,8 @@ import java.util.Map;
 @EnableHystrixDashboard
 @SpringBootApplication
 @ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = NacosRibbonClientExtConfig.class)})
-@RibbonClient(name = "sample-microservice-app-consumer", configuration = NacosRibbonClientExtConfig.class)
+@RibbonClients(defaultConfiguration= NacosRibbonClientExtConfig.class)
+@EnableFeignClients
 public class ConsumerApplication {
 
 	@Value("${v:0.0}")

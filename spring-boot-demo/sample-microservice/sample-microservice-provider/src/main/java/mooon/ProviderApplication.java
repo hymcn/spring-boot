@@ -24,7 +24,7 @@ import org.springframework.core.env.Environment;
 @EnableCircuitBreaker
 public class ProviderApplication {
 
-	@Value("${v:0.0}")
+	@Value("${v}")
 	private String version;
 
 	@Autowired
@@ -36,7 +36,6 @@ public class ProviderApplication {
 
 	@Bean
 	public ApplicationRunner applicationRunner(){
-		log.info(environment.getProperty("v", "vv"));
 		return new ApplicationRunner() {
 			public void run(ApplicationArguments applicationArguments) throws Exception {
 				log.info("应用启动中，配置版本{}", version);

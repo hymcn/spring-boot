@@ -6,6 +6,7 @@ import com.netflix.loadbalancer.ServerList;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
 /**
  * @author Administrator
  * @date 2019/12/20.

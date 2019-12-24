@@ -2,6 +2,7 @@ package mooon.service;
 
 import mooon.api.IEchoService;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
@@ -18,5 +19,4 @@ public class RemoteService {
 	public String echo(String e){
 		return iEchoService.echo(e);
 	}
-
 }
